@@ -1,5 +1,21 @@
-@author shariq.shaikh
-This branch contains Graph.java
-This is a generic graph classes which exposes basic graph methods and utilities.
-Making some changes to readme file to check git status
-checking git diff
+README for Graph.java. 
+
+Graph class works on the assumption that for weighted graphs, 
+the weights of any edge can never be 0, 
+However, they can have negative edges. 
+
+Methods (Version 1.0) 03-04-2016 :
+addEdge
+addEdge
+hasEdge
+removeEdge
+printGraph
+bfsIterative
+bfsIterative
+bfsRecursive
+bfsRecursive
+dfsRecursive
+dfsRecursive
+dfsIterative
+getVerticesMap
+getTraversalMap
