@@ -1,7 +1,6 @@
 package com.core.graph;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.TreeMap;
@@ -62,6 +61,9 @@ public class Graph {
 					+ "addEdge(int a,int b,int w) for adding an edge");
 			else
 			edgeList[a][b]=1;
+				if(isUndirected)
+				edgeList[b][a]=1;
+
 			LOGGER.info("Added edge from "+ a + " to " + b);	
 		}
 		
@@ -152,7 +154,7 @@ public class Graph {
 		}
 		
 		public ArrayList<Integer> bfsRecursive(int source){
-			LOGGER.info("Even if the metho name tips that this one is recursive BFS,\n"
+			LOGGER.info("Even if the method name tips that this one is recursive BFS,\n"
 					+ "There can't be an optimized way to implement something that uses\n "
 					+ "Queues instead of stack by the means of recursion. Hence for optimality,\n "
 					+ "This method will eventually follow iterativeBFS.");
@@ -204,10 +206,46 @@ public class Graph {
 			return ret;
 		}
 		
-		public HashMap<Integer,ArrayList<Integer>> getTraversalMap(){
-			HashMap<Integer,ArrayList<Integer>> ret = new HashMap<Integer, ArrayList<Integer>>();
-			
+		public TreeMap<Integer,ArrayList<Integer>> getTraversalMap(){
+			TreeMap<Integer,ArrayList<Integer>> ret = new TreeMap<Integer, ArrayList<Integer>>();
+				
 			return ret;
+		}
+		
+/**
+ * Single Source Shortest Path Using BFS 
+ * This approach for SSP requires that all the edges in consideration 
+ * 	have unit/identical weighs. 
+ * 	Hence we simply count the number of edges between the source and destination(Using BFS)
+ *  and choose the path which have minimum number of edges. 
+ * @param source
+ * @param dest
+ * @return
+ */
+		public int ssspUsingBFS(int source, int dest){
+			ArrayList<Integer> arrayOfBFSTraversal= bfsIterative(source);
+			int count = 0;
+			
+			for(int temp : arrayOfBFSTraversal)
+			if(temp!=dest)
+				count++;
+			else 
+				break;
+		
+			return count;
+		}
+		
+		public ArrayList<Integer> ssspUsingDijsktra(int source,int dest){
+			
+/*		Then as long as V \ X in not empty i.e there is at least one vertex v for which d(s, v) in not already computed, we repeat the following step:
+
+Let v be a vertex in V \ X such that d(s, v) is minimal from all such vertices.
+
+We move v to X and for each edge (v, u) such that v is in V \ X, we update the current distance to u, i.e we do d(s, u) = min(d(s, u), d(s, v) + w(v, u)), where w(v, u) is the length of the edge from v to u.*/
+			
+			
+			
+			return null;
 		}
 }
 
