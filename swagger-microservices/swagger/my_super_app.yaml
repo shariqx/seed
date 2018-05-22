@@ -1,0 +1,36 @@
+swagger: "2.0"
+
+info:
+  title: "Swagger Hello World YAML"
+  version: "1.0"
+
+basePath: /v1.0
+
+paths:
+  /items/:
+    get:
+      responses:
+        '200':
+          description: 'Fetch a list of random items Iin JSON Format.'
+          schema:
+            type: string
+  /randomGenerator/:
+    get:
+      responses:
+        '200':
+          description: 'Fetch a random name!'
+          schema:
+            type: string
+
+definitions:
+  Item:
+    type: object
+    required:
+      - name
+      - description
+    properties:
+      name:
+        type: integer
+        format: int64
+      description:
+       type: string
