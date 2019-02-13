@@ -1,6 +1,6 @@
 
 /*
- *	Give thi guy the list of paramters, and it'll return you the nice Logger. 
+ *	Give this guy the list of paramters, and it'll return you a nice Logging code. 
  *  Customize it with your LOG object name, and log level.  
  *  'cuz we all of us hate repetitive work!
  */
